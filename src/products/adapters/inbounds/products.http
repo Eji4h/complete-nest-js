@@ -1,0 +1,17 @@
+POST http://localhost:3000/products
+content-type: application/json
+
+{
+	"name": "My product 1",
+	"detail": "My product detail",
+	"amount": 100,
+	"price": 100
+}
+
+###
+GET http://localhost:3000/products
+content-type: application/json
+
+###
+GET http://localhost:3000/products/65f53c67cee50d0223589c10
+content-type: application/jso
