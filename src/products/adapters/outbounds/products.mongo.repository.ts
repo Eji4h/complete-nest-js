@@ -36,6 +36,10 @@ export class ProductsMongoRepository implements ProductsRepository {
     return ProductsMongoRepository.toDomain(updatedProduct);
   }
 
+  async deleteById(id: string): Promise<void> {
+    await this.productModel.deleteOne({ _id: id }).exec();
+  }
+
   static toDomain(product: ProductEntity): IProduct {
     return Builder(Product)
       .id(product._id.toString())

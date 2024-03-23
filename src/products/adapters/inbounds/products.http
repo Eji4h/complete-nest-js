@@ -23,3 +23,7 @@ content-type: application/json
 {
 	"amount": 1000
 }
+
+###
+DELETE http://localhost:3000/products/65ff5b1e1f6ec1939fea4883
+content-type: application/json

@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { CreateProductUseCase } from '../../applications/usecases/createProduct.usecase';
 import { CreateProductDto } from './createProduct.dto';
 import { CreateProductCommand } from '../../applications/usecases/createProduct.command';
@@ -8,6 +16,8 @@ import { GetProductByIdQuery } from '../../applications/usecases/getProductById.
 import { UpdateProductByIdUseCase } from '../../applications/usecases/updateProductById.usecase';
 import { UpdateProductByIdDto } from './updateProductById.dto';
 import { UpdateProductByIdCommand } from '../../applications/usecases/updateProductById.command';
+import { DeleteProductByIdUseCase } from '../../applications/usecases/deleteProductById.usecase';
+import { DeleteProductByIdCommand } from '../../applications/usecases/deleteProductById.command';
 
 @Controller('products')
 export class ProductsController {
@@ -16,6 +26,7 @@ export class ProductsController {
     private readonly getAllProductUseCase: GetAllProductUseCase,
     private readonly getProductByIdUseCase: GetProductByIdUseCase,
     private readonly updateProductByIdUseCase: UpdateProductByIdUseCase,
+    private readonly deleteProductByIdUseCase: DeleteProductByIdUseCase,
   ) {}
 
   @Post()
@@ -45,5 +56,13 @@ export class ProductsController {
       product,
     };
     return this.updateProductByIdUseCase.execute(command);
+  }
+
+  @Delete(':id')
+  deleteById(@Param('id') id: string) {
+    const command: DeleteProductByIdCommand = {
+      id,
+    };
+    return this.deleteProductByIdUseCase.execute(command);
   }
 }
