@@ -14,4 +14,4 @@ content-type: application/json
 
 ###
 GET http://localhost:3000/products/65f53c67cee50d0223589c10
-content-type: application/jso
+content-type: application/json

@@ -23,6 +23,7 @@ export class ProductsMongoRepository implements ProductsRepository {
     const products = await this.productModel.find().exec();
     return products.map(ProductsMongoRepository.toDomain);
   }
+
   async getById(id: string): Promise<IProduct> {
     const product = await this.productModel.findById(id).exec();
     return ProductsMongoRepository.toDomain(product);
