@@ -5,7 +5,7 @@ import { ProductsRepository } from '../ports/products.repository';
 import { GetProductByIdUseCase } from './getProductById.usecase';
 import { GetProductByIdQuery } from './getProductById.query';
 
-describe('Get Product By Id Use Case', () => {
+describe('Get product by id use case', () => {
   it('should be pass correct id.', async () => {
     // Arrange
     const productId = faker.database.mongodbObjectId().toString();

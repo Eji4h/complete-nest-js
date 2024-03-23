@@ -7,4 +7,5 @@ export interface ProductsRepository {
   create(product: IProduct): Promise<IProduct>;
   getAll(): Promise<IProduct[]>;
   getById(id: string): Promise<IProduct>;
+  updateById(id: string, product: Partial<IProduct>): Promise<IProduct>;
 }

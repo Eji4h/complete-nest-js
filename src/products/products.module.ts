@@ -10,6 +10,7 @@ import { productsRepositoryToken } from './applications/ports/products.repositor
 import { ProductsMongoRepository } from './adapters/outbounds/products.mongo.repository';
 import { GetAllProductUseCase } from './applications/usecases/getAllProduct.usecase';
 import { GetProductByIdUseCase } from './applications/usecases/getProductById.usecase';
+import { UpdateProductByIdUseCase } from './applications/usecases/updateProductById.usecase';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { GetProductByIdUseCase } from './applications/usecases/getProductById.us
     CreateProductUseCase,
     GetAllProductUseCase,
     GetProductByIdUseCase,
+    UpdateProductByIdUseCase,
     {
       provide: productsRepositoryToken.toString(),
       useClass: ProductsMongoRepository,

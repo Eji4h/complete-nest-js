@@ -15,10 +15,10 @@ export class ProductMongoSchema implements ProductEntity {
   detail: string;
 
   @Prop()
-  amount: string;
+  amount: number;
 
   @Prop()
-  price: string;
+  price: number;
 
   @Prop({ required: false })
   createdAt?: Date;

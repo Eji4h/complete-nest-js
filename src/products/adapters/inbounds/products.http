@@ -13,5 +13,13 @@ GET http://localhost:3000/products
 content-type: application/json
 
 ###
-GET http://localhost:3000/products/65f53c67cee50d0223589c10
+GET http://localhost:3000/products/65ff5b1e1f6ec1939fea4883
 content-type: application/json
+
+###
+PUT http://localhost:3000/products/65ff5b1e1f6ec1939fea4883
+content-type: application/json
+
+{
+	"amount": 1000
+}
