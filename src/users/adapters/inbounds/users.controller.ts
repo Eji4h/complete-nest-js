@@ -11,6 +11,7 @@ export class UsersController {
     private readonly getUserByUserNameUseCase: GetUserByUserNameUseCase,
   ) {}
 
+  @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     return this.createUserUseCase.execute(createUserDto);
   }

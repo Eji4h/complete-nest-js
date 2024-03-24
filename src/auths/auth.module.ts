@@ -26,7 +26,6 @@ import { JwtStrategy } from './jwt.strategy';
   ],
   controllers: [AuthController],
   providers: [
-    JwtService,
     JwtStrategy,
     LoginUseCase,
     {
