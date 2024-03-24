@@ -39,6 +39,7 @@ export class ProductsController {
     return productCreated;
   }
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   getAllProducts() {
     return this.getAllProductUseCase.execute();

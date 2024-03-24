@@ -1,3 +1,16 @@
+###
+# @name login
+POST http://localhost:3000/auth/login
+content-type: application/json
+
+{
+	"username": "myUserNameTest",
+	"password": "MyPassword123"
+}
+### 
+
+@myAccessToken = {{login.response.body.accessToken}}
+
 POST http://localhost:3000/products
 content-type: application/json
 
@@ -11,6 +24,7 @@ content-type: application/json
 ###
 GET http://localhost:3000/products
 content-type: application/json
+authorization: Bearer {{myAccessToken}}
 
 ###
 GET http://localhost:3000/products/65ff5b1e1f6ec1939fea4883
