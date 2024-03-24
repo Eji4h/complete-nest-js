@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
 import { CreateUserUseCase } from '../../applications/usecases/createUser.usecase';
 import { CreateUserDto } from './createUser.dto';
 import { GetUserByUserNameUseCase } from '../../applications/usecases/getUserByUserName.usecase';
@@ -11,7 +11,6 @@ export class UsersController {
     private readonly getUserByUserNameUseCase: GetUserByUserNameUseCase,
   ) {}
 
-  @Post()
   async create(@Body() createUserDto: CreateUserDto) {
     return this.createUserUseCase.execute(createUserDto);
   }

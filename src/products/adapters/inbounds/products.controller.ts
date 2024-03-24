@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { CreateProductUseCase } from '../../applications/usecases/createProduct.usecase';
 import { CreateProductDto } from './createProduct.dto';
@@ -18,6 +19,7 @@ import { UpdateProductByIdDto } from './updateProductById.dto';
 import { UpdateProductByIdCommand } from '../../applications/usecases/updateProductById.command';
 import { DeleteProductByIdUseCase } from '../../applications/usecases/deleteProductById.usecase';
 import { DeleteProductByIdCommand } from '../../applications/usecases/deleteProductById.command';
+import { JwtAuthGuard } from '../../../auths/jwt-auth.guard';
 
 @Controller('products')
 export class ProductsController {
@@ -29,6 +31,7 @@ export class ProductsController {
     private readonly deleteProductByIdUseCase: DeleteProductByIdUseCase,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async createProduct(@Body() createProductDto: CreateProductDto) {
     const command: CreateProductCommand = createProductDto;
