@@ -1,10 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ProductEntity } from './product.entity';
 
-export const productCollectionName = 'products';
+export const productsCollectionName = 'products';
 
 @Schema({
-  collection: productCollectionName,
+  collection: productsCollectionName,
   timestamps: true,
 })
 export class ProductMongoSchema implements ProductEntity {

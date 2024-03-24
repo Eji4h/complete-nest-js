@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
   ProductSchema,
-  productCollectionName,
+  productsCollectionName,
 } from './adapters/outbounds/product.schema';
 import { ProductsController } from './adapters/inbounds/products.controller';
 import { CreateProductUseCase } from './applications/usecases/createProduct.usecase';
@@ -16,7 +16,7 @@ import { DeleteProductByIdUseCase } from './applications/usecases/deleteProductB
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: productCollectionName, schema: ProductSchema },
+      { name: productsCollectionName, schema: ProductSchema },
     ]),
   ],
   controllers: [ProductsController],

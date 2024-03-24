@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ProductsRepository } from '../../applications/ports/products.repository';
 import { InjectModel } from '@nestjs/mongoose';
-import { productCollectionName } from './product.schema';
+import { productsCollectionName } from './product.schema';
 import { Model } from 'mongoose';
 import { ProductEntity } from './product.entity';
 import { IProduct, Product } from '../../applications/domains/product';
@@ -10,7 +10,7 @@ import { Builder } from 'builder-pattern';
 @Injectable()
 export class ProductsMongoRepository implements ProductsRepository {
   constructor(
-    @InjectModel(productCollectionName)
+    @InjectModel(productsCollectionName)
     private readonly productModel: Model<ProductEntity>,
   ) {}
 
